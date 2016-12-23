@@ -1,5 +1,7 @@
 #Fact:system_class
 Facter.add(:system_class) do 
-  setcode "server"
+  setcode do 
+      "server"
+end 
 end
 	
