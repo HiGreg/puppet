@@ -2,14 +2,18 @@
 :backends:
   - yaml
 :hierarchy:
-  - defaults
-  - "%{clientcert}"
+#  - defaults
+#  - "%{clientcert}"
   - "%{environment}"
-  - global
+#  - global
+  - common
+  - "%{environment}"
+  - "%{osfamily}"
+  - "%{hostname}"
 
 :yaml:
 # datadir is empty here, so hiera uses its defaults:
 # - /var/lib/hiera on *nix
 # - %CommonAppData%\PuppetLabs\hiera\var on Windows
 # When specifying a datadir, make sure the directory exists.
-  :datadir:
+  :datadir:/etc/puppet/environments/%{environment}/hieradb
